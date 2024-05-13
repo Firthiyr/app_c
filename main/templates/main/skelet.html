@@ -101,7 +101,7 @@
 				<div class="offcanvas-body justify-content-center">
 					<ul class="navbar-nav menu-list list-unstyled d-flex gap-md-3 ps-lg-5 mb-0">
 						<li class="nav-item">
-							<a href="{% url "index" %}" class="nav-link mx-2 active">Головна</a>
+							<a href="{% url "main:index" %}" class="nav-link mx-2 active">Головна</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link mx-2 dropdown-toggle" role="button" id="pages" data-bs-toggle="dropdown"
@@ -112,13 +112,13 @@
 								<li><a href="about.html" class="dropdown-item">Аксесуари</a></li>
 							</ul>
 						</li>
-						<div class="main-logo"><a href="{% url "index" %}" class="nav-link mx-2 active">CustomCraze Boutique</a>
+						<div class="main-logo"><a href="{% url "main:index" %}" class="nav-link mx-2 active">CustomCraze Boutique</a>
 							<!--<a href="index.html">
 								<img src="images/logo.png" alt="logo" class="img-fluid">
 							</a>-->
 						</div>
 						<li class="nav-item">
-							<a href="{% url "about" %}" class="nav-link mx-2">Про Нас</a>
+							<a href="{% url "main:about" %}" class="nav-link mx-2">Про Нас</a>
 						</li>
 						<li class="nav-item">
 							<a href="shop.html" class="nav-link mx-2">Розпродаж</a>
@@ -229,10 +229,10 @@
 					<div class="footer-menu">
 						<ul class="menu-list list-unstyled">
 							<li class="menu-item">
-								<a href="#" class="footer-link">Головна</a>
+								<a href="{% url "main:index" %}" class="footer-link">Головна</a>
 							</li>
 							<li class="menu-item">
-								<a href="about.html" class="footer-link">Про нас</a>
+								<a href="{% url "main:about" %}" class="footer-link">Про нас</a>
 							</li>
 						</ul>
 					</div>
