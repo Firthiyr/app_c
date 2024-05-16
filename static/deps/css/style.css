@@ -400,6 +400,32 @@ iconify-icon.arrow-icon {
 .product-store .product-item {
   position: relative;
 }
+.product-item {
+  position: relative;
+}
+
+.cart-concern {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -40px;
+  text-align: center;
+  opacity: 0;
+  transition: 0.5s ease-out;
+}
+
+.product-item:hover .cart-concern {
+  bottom: 0;
+  opacity: 1;
+}
+
+.price-wrapper {
+  display: inline-block;
+}
+
+.price-wrapper p {
+  margin: 0;
+}
 
 .product-item .cart-concern {
   background: var(--light-color);
@@ -607,7 +633,7 @@ faqs page style start
 
 
 
-/*--------------------------------------------------------------
+/*-----------------------------------------------------------
 Blog page style start
 --------------------------------------------------------------*/
 /* blog style */
@@ -1017,56 +1043,17 @@ padding-bottom: 50px;
 }
 
 /*---------------------
-  Shop
+  Shop Categories Filters
 -----------------------*/
 
 .shop__sidebar {
 	padding-top: 20px;
 }
 
-.price-filter {
-  margin-bottom: 20px;
-  position: relative;
-  width: 200px; /* Ширина полоски */
+.btn-filters {
+    font-size: 1rem;
+    padding: .375rem .75rem;
 }
-
-.price-filter input[type="range"] {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 10px;
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  transition: opacity .2s;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.price-filter input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  background: black; /* Черный круглый кружок */
-  border-radius: 50%; /* Делаем кружок */
-  cursor: pointer;
-}
-
-.price-slider-value {
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-  color: #6c757d;
-  position: relative;
-  top: 20px; /* Расположение цифр под полоской */
-}
-
-.price-slider-value span {
-  width: 50%;
-  text-align: center;
-}
-
 /*---------------------
   Checkout
 -----------------------*/
@@ -1074,4 +1061,37 @@ padding-bottom: 50px;
 .checkout {
   padding-top: 150px;
   padding-bottom: 30px;
+}
+
+/*---------------------
+  Single Product Page
+-----------------------*/
+
+/* CSS стили для выравнивания чисел по центру */
+#inputQuantity {
+  width: 3rem; /* Ширина элемента по умолчанию */
+  text-align: center; /* Выравнивание текста по центру */
+}
+
+/* Медиа-запрос для мобильных устройств, с учетом iPhone SE */
+@media (max-width: 320px) {
+  #inputQuantity {
+  width: 2rem; /* Уменьшенная ширина на мобильных устройствах */
+  }
+}
+
+.border-danger {
+  color: #fff; /* Сделаем текст белым */
+  background-color: #dc3545; /* Яркий красный цвет */
+  border-color: #dc3545; /* Яркий красный цвет */
+}
+
+.border-danger:hover {
+  color: #fff; /* Сделаем текст белым при наведении */
+  background-color: #c82333; /* Немного более темный красный цвет при наведении */
+}
+
+.text-sale {
+  color: red;
+
 }
