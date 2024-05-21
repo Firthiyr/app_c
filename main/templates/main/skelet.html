@@ -107,9 +107,9 @@
 							<a class="nav-link mx-2 dropdown-toggle" role="button" id="pages" data-bs-toggle="dropdown"
 								aria-expanded="false">Категорії</a>
 							<ul class="dropdown-menu" aria-labelledby="pages">
-								<li><a href="{% url "catalog:index" %}" class="dropdown-item">Взуття</a></li>
-								<li><a href="{% url "catalog:index" %}" class="dropdown-item">Одяг</a></li>
-								<li><a href="{% url "catalog:index" %}" class="dropdown-item">Аксесуари</a></li>
+								{% for category in categories %}
+									<li><a href="{% url "catalog:index" %}" class="dropdown-item">{{category.name}}</a></li>
+								{% endfor %}
 							</ul>
 						</li>
 						<div class="main-logo"><a href="{% url "main:index" %}" class="nav-link mx-2 active">CustomCraze Boutique</a>

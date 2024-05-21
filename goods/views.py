@@ -9,6 +9,7 @@ def catalog(request):
             {
                 "image": "deps/image/goods/photo_2_2023-04-29_21-57-46-1024x1024.jpg",
                 "name": "Nike Air Jordan 1 Retro Low OG ‘Voodoo’",
+                "description": "Відчуйте магію стилю з кросівками Nike Air Jordan 1 Retro Low OG ‘Voodoo’. Ця ексклюзивна модель об'єднує в собі легендарний дизайн Air Jordan з унікальним містичним колоритом, натхненним вуду-культурою.",
                 "price": "2998₴",
             },
         ],
