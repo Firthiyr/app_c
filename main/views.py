@@ -12,7 +12,6 @@ def index(request) -> HttpResponse:
     context: dict[str, str] = {
         "title": "Home - Головна",
         "content": "CustomCraze Boutique",
-        "categories": categories,
     }
     return render(request, "main/index.html", context)
 

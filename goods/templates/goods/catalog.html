@@ -114,38 +114,48 @@
 					</div>
 				</div>
 			</div>
- 			{% for  product in  goods %}
-			<!-- Products on page-->
+
+			<!-- Products on page -->
 			<div class="col-lg-10">
 				<div class="row">
+					{% for product in goods %}
 					<div class="col-md-6 col-lg-3 my-4">
-						<div class="z-1 position-absolute rounded-3 m-3 px-3 border border-danger">
-							Sale
-						</div>
+						{% if product.discount > 0 %}
+							<div class="z-1 position-absolute rounded-3 m-3 px-3 border-danger">Sale {{ product.discount }}%</div>
+						{% endif %}
 						<div class="product-item">
-							<div class="image-holder" style="width: 100%; height: 100%;">
-								<img src="{% static product.image %}" alt="..."
-									class="product-image img-fluid">
+							<div class="image-holder" style="width: 100%; height: 300px;">
+								{% if product.image %}
+								<img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image img-fluid">
+								{% else %}
+								<img src="{% static 'deps/image/No-image-available.jpg' %}" alt="..." class="product-image img-fluid">
+								{% endif %}
 							</div>
 							<div class="product-detail d-flex flex-column align-items-center mt-4">
 								<h4 class="product-title mb-2 fs-5">
-									<a href="{% url "catalog:product" %}">{{ product.name }}</a>
+									<a href="{% url 'catalog:product' %}">{{ product.name }}</a>
 								</h4>
 								<div class="item-price fs-5 fw-normal mb-2 d-flex align-items-center">
-									<span class="text-sale">{{ product.price }}</span>
-									<a href="product.html" class="btn btn-outline-dark ms-4 px-2 py-2 rounded">
+									{% if product.discount %}
+										<!--<span class="text-normal"><s>{{ product.price }}</s>₴ </span>-->
+										<span class="text-sale">{{ product.sell_price }}₴</span>
+									{% else %}
+										<span class="text-normal">{{ product.price }}₴</span>
+									{% endif %}
+									<a href="product.html" class="btn btn-outline-dark ms-4 px-0 py-2 rounded">
 										View Details
 									</a>
 								</div>
 							</div>
 						</div>
 					</div>
+					{% endfor %}
 				</div>
 			</div>
-			{% endfor %}			
 		</div>
 	</div>
 </section>
+
 <!-- Shop Section End -->
 <!-- Paginstion -->
 <nav aria-label="Page navigation example">

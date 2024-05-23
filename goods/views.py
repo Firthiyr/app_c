@@ -1,18 +1,14 @@
 from django.shortcuts import render
+from goods.models import Products
 
 
 # Create your views here.
 def catalog(request):
+
+    goods = Products.objects.all()  # При росте сайта, писать тут лучше чем в контекст.
     context = {
         "title": "Home - Каталог",
-        "goods": [
-            {
-                "image": "deps/image/goods/photo_2_2023-04-29_21-57-46-1024x1024.jpg",
-                "name": "Nike Air Jordan 1 Retro Low OG ‘Voodoo’",
-                "description": "Відчуйте магію стилю з кросівками Nike Air Jordan 1 Retro Low OG ‘Voodoo’. Ця ексклюзивна модель об'єднує в собі легендарний дизайн Air Jordan з унікальним містичним колоритом, натхненним вуду-культурою.",
-                "price": "2998₴",
-            },
-        ],
+        "goods": goods,
     }
     return render(request, "goods/catalog.html", context)
 

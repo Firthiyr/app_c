@@ -72,13 +72,13 @@ class Products(models.Model):
         Sizes, verbose_name="Розміри", related_name="products"
     )
     image = models.ImageField(
-        upload_to="products/", blank=True, null=True, verbose_name="Зображення"
+        upload_to="products", blank=True, null=True, verbose_name="Зображення"
     )
     price = models.DecimalField(
         default=0.00, max_digits=7, decimal_places=2, verbose_name="Ціна"
     )
     discount = models.DecimalField(
-        default=0.00, max_digits=4, decimal_places=2, verbose_name="Ціна у %"
+        default=0.00, max_digits=4, decimal_places=0, verbose_name="Ціна у %"
     )
     quantity = models.PositiveIntegerField(default=0, verbose_name="Кількість")
 
@@ -87,6 +87,16 @@ class Products(models.Model):
 
     def __str__(self):
         return f"{self.name} Кількість - {self.quantity}"
+
+    def display_id(self):
+        return f"{self.id:04}"
+
+    def sell_price(self):
+        if self.discount:  # Проработка скидки на сайте
+            return round(self.price - self.price * self.discount / 100, 2)
+        return (
+            self.price
+        )  # Если скидки нет возв. обычная цена, если есть уже со скидкой
 
     class Meta:
         db_table = "Product"

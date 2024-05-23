@@ -1,4 +1,5 @@
 {% load static %}
+{% load tags_for_goods %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -107,6 +108,7 @@
 							<a class="nav-link mx-2 dropdown-toggle" role="button" id="pages" data-bs-toggle="dropdown"
 								aria-expanded="false">Категорії</a>
 							<ul class="dropdown-menu" aria-labelledby="pages">
+								{% tag_categories as categories %}
 								{% for category in categories %}
 									<li><a href="{% url "catalog:index" %}" class="dropdown-item">{{category.name}}</a></li>
 								{% endfor %}

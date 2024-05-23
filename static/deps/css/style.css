@@ -400,9 +400,6 @@ iconify-icon.arrow-icon {
 .product-store .product-item {
   position: relative;
 }
-.product-item {
-  position: relative;
-}
 
 .cart-concern {
   position: absolute;
@@ -1054,6 +1051,12 @@ padding-bottom: 50px;
     font-size: 1rem;
     padding: .375rem .75rem;
 }
+
+.product-image {
+  width: 100%;
+  height: 300px; /* или любое другое фиксированное значение */
+  object-fit: cover; /* сохраняет соотношение сторон и обрезает изображение */
+}
 /*---------------------
   Checkout
 -----------------------*/
@@ -1091,7 +1094,16 @@ padding-bottom: 50px;
   background-color: #c82333; /* Немного более темный красный цвет при наведении */
 }
 
-.text-sale {
-  color: red;
+.text-normal {
+  color: #000000 !important;
+  margin-right: 8px;
+}
 
+.text-danger {
+  color: #dc3545 !important;
+}
+
+.text-sale {
+  color: #dc3545;
+  margin-right: 8px;
 }

@@ -129,6 +129,10 @@ STATICFILES_DIRS: list = [
     BASE_DIR / "static",
 ]
 
+MEDIA_URL = "media/"  # Чтоб работала папка медиа, фотки лучше там держать
+
+MEDIA_ROOT = BASE_DIR / "media"
+
 INTERNAL_IPS = [
     # ...
     "127.0.0.1",
