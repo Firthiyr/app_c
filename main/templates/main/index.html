@@ -57,24 +57,26 @@
 			<h2 class="display-5 fw-light text-uppercase text-center mb-5">Нові надходження</h2>
 			<div class="row">
 				<div class="col-md-6 col-lg-3 my-4">
-					<div class="z-1 position-absolute rounded-3 m-3 px-3 border border-danger">
-						Sale
-					</div>
 					<div class="product-item">
 						<div class="image-holder" style="width: 100%; height: 100%;">
-							<img src="{% static .product.image %}" alt="..."
+							<img src="{% static "deps/image/photo_2_2023-04-29_21-57-46-1024x1024.jpg" %}" alt="Books"
 								class="product-image img-fluid">
 						</div>
-						<div class="product-detail d-flex flex-column align-items-center mt-4">
-							<h4 class="product-title mb-2 fs-5">
-								<a href="{% url "catalog:product" %}">{{ product.name }}</a>
-							</h4>
-							<div class="item-price fs-5 fw-normal mb-2 d-flex align-items-center">
-								<span class="text-sale">{{ product.price }}</span>
-								<a href="product.html" class="btn btn-outline-dark ms-4 px-2 py-2 rounded">
-									View Details
+						<div class="cart-concern">
+							<div class="cart-button d-flex justify-content-between align-items-center">
+								<a href="single-product.html"
+									class="btn-wrap cart-link d-flex align-items-center text-capitalize fs-6 ">add to cart
+								</a>
+								<a href="single-product.html" class="view-btn">
+									<i class="bi bi-arrow-right pe-1 text-primary"></i>
 								</a>
 							</div>
+						</div>
+						<div class="product-detail d-flex justify-content-between align-items-center mt-4">
+							<h4 class="product-title mb-0">
+								<a href="single-product.html">Nike Air Jordan 1 Retro Low OG ‘Voodoo’</a>
+							</h4>
+							<p class="mb-1 fs-5 fw-normal">2998 грн</p>
 						</div>
 					</div>
 				</div>

@@ -22,19 +22,29 @@
 <section class="py-5">
 	<div class="container px-4 px-lg-5 my-5">
 		<div class="row gx-4 gx-lg-5 align-items-center">
-			<div class="col-md-6"><img class="card-img-top mb-5 mb-md-0"
-					src="img/image/photo_2_2023-04-29_21-57-46-1024x1024.jpg" alt="..." /></div>
+			<div class="col-md-6">
+				{% if product.discount > 0 %}
+				<div class="z-1 position-absolute rounded-3 m-3 px-3 border-danger">Sale {{ product.discount }}%</div>
+			{% endif %}
+				<img class="card-img-top mb-5 mb-md-0"
+				{% if product.image %}
+				<img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image img-fluid">
+				{% else %}
+				<img src="{% static 'deps/image/No-image-available.jpg' %}" alt="..." class="product-image img-fluid">
+				{% endif %}
+			</div>
 			<div class="col-md-6">
 				<div class="product_id mb-1">Арт: {{ product.display_id }}</div>
-				<h1 class="display-5 fw-bolder">Nike Air Jordan 1 Retro Low OG ‘Voodoo’</h1>
-
+				<h1 class="display-5 fw-bolder">{{ poduct.name }}</h1>
 				<div class="fs-5 mb-5">
-					<span class="text-muted me-2 text-decoration-line-through">3400 грн</span>
-					<span class="text-sale">2998 грн</span>
+					{% if product.discount %}
+					<!--<span class="text-normal"><s>{{ product.price }}</s>₴ </span>-->
+					<span class="text-sale">{{ product.sell_price }}₴</span>
+				{% else %}
+					<span class="text-normal">{{ product.price }}₴</span>
+				{% endif %}
 				</div>
-				<p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem
-					modi.Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima
-					ea iste laborum vero?</p>
+				<p class="lead">{{ product.description }}</p>
 				<div class="d-flex">
 					<input class="form-control text-center me-3" id="inputQuantity" type="number" value="1" />
 					<div class="item-price fs-5 d-flex align-items-center">
