@@ -1,9 +1,12 @@
 from django.shortcuts import render, get_list_or_404
+from django.core.paginator import Paginator
 from goods.models import Products
 
 
 # Create your views here.
-def catalog(request, category_slug):
+def catalog(request, category_slug, page=1):
+
+    page = request.GET.get("page", 1)
 
     if category_slug == "all-goods":
         goods = (
@@ -12,9 +15,13 @@ def catalog(request, category_slug):
     else:
         goods = get_list_or_404(Products.objects.filter(category__slug=category_slug))
 
+    paginator = Paginator(goods, 4)
+    current_page = paginator.page(int(page))
+
     context = {
         "title": "Home - Каталог",
-        "goods": goods,
+        "goods": current_page,
+        "slug_url": category_slug,
     }
     return render(request, "goods/catalog.html", context)
 

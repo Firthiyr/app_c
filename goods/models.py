@@ -102,3 +102,4 @@ class Products(models.Model):
         db_table = "Product"
         verbose_name = "Товар"
         verbose_name_plural = "Товари"
+        ordering = ("id",)
