@@ -1,5 +1,6 @@
 {% extends "main/skelet.html" %}
 {% load static %}	
+{% load tags_for_goods %}
 
 {% block content %}
 <!-- Breadcrumb Section Begin -->
@@ -35,15 +36,15 @@
 								<form method="get" action="{% url "catalog:index" slug_url %}">
 									<ul class="list-unstyled ps-0">
 										<li>
-											<input type="checkbox" id="default_sales" name="on_sale" value="on">
+											<input type="checkbox" id="default_sales" name="on_sale" value="on" {% if request.GET.on_sale == "on" %}checked{% endif %}>
 												<label for="default_sales" class="link-dark rounded">Товари по акції</label>
 										</li>
 										<li>
-											<input type="checkbox" id="default_price1" name="order_by" value="price">
+											<input type="checkbox" id="default_price1" name="order_by" value="price" {% if request.GET.order_by == "price" %}checked{% endif %}>
 												<label for="default_price1" class="link-dark rounded">Дешеві-Дорогі</label>
 										</li>
 										<li>
-											<input type="checkbox" id="default_price2" name="order_by" value="-price">
+											<input type="checkbox" id="default_price2" name="order_by" value="-price" {% if request.GET.order_by == "-price" %}checked{% endif %}>
 												<label for="default_price2" class="link-dark rounded">Дорогі-Дешеві</label>
 										</li>
 										<li class="mb-1">
@@ -54,15 +55,15 @@
 											<div class="collapse" id="categories-collapse">
 												<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 													<li>
-														<input type="checkbox" id="category1" name="category" value="vzuttya">
+														<input type="checkbox" id="category1" name="category" value="vzuttya" {% if request.GET.category == "vzuttya" %}checked{% endif %}>
 															<label for="category1" class="link-dark rounded">Взуття</label>
 													</li>
 													<li>
-														<input type="checkbox" id="category2" name="category" value="odyag">
+														<input type="checkbox" id="category2" name="category" value="odyag" {% if request.GET.category == "odyag" %}checked{% endif %}>
 															<label for="category2" class="link-dark rounded">Одежа</label>
 													</li>
 													<li>
-														<input type="checkbox" id="category3" name="category" value="aksesuari">
+														<input type="checkbox" id="category3" name="category" value="aksesuari" {% if request.GET.category == "aksesuari" %}checked{% endif %}>
 															<label for="category3" class="link-dark rounded">Аксесуари</label>
 													</li>
 												</ul>
@@ -75,15 +76,15 @@
 											<div class="collapse" id="manufacturers-collapse">
 												<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 													<li>
-															<input type="checkbox" id="manufacturer1" name="manufacturer" value="rayban">
+															<input type="checkbox" id="manufacturer1" name="manufacturer" value="rayban" {% if request.GET.manufacturer == "rayban" %}checked{% endif %}>
 															<label for="manufacturer1" class="link-dark rounded">Rayban</label>
 													</li>
 													<li>
-														<input type="checkbox" id="manufacturer2" name="manufacturer" value="nike">
+														<input type="checkbox" id="manufacturer2" name="manufacturer" value="nike" {% if request.GET.manufacturer == "nike" %}checked{% endif %}>
 														<label for="manufacturer2" class="link-dark rounded">Nike</label>
 													</li>
 													<li>
-														<input type="checkbox" id="manufacturer3" name="manufacturer" value="puma">
+														<input type="checkbox" id="manufacturer3" name="manufacturer" value="puma" {% if request.GET.manufacturer == "puma" %}checked{% endif %}>
 														<label for="manufacturer3" class="link-dark rounded">Puma</label>
 													</li>
 												</ul>
@@ -175,25 +176,26 @@
 		</div>
 	</div>
 </section>
-
 <!-- Shop Section End -->
 <!-- Paginstion -->
 <nav aria-label="Page navigation">
   <ul class="pagination justify-content-center">
     <li class="page-item {% if not goods.has_previous %}disabled{% endif %}">
-      <a class="page-link" href="{% if goods.has_previous %}?page={{goods.previous_page_number}}{% else %}#{% endif %}" aria-label="Previous">
+      <a class="page-link" href="{% if goods.has_previous %}?{% change_params page=goods.previous_page_number %}{% else %}#{% endif %}" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
+
     {% for page in goods.paginator.page_range %}
 		{% if page >= goods.number|add:-2 and page <= goods.number|add:+2 %}
       <li class="page-item {% if page == goods.number %}active{% endif %}">
-        <a class="page-link" href="?page={{ page }}">{{ page }}</a>
+        <a class="page-link" href="?{% change_params page=page %}">{{ page }}</a>
       </li>
-			{% endif %}
+		{% endif %}
     {% endfor %}
+
     <li class="page-item {% if not goods.has_next %}disabled{% endif %}">
-      <a class="page-link" href="{% if goods.has_next %}?page={{goods.next_page_number}}{% else %}#{% endif %}" aria-label="Next">
+      <a class="page-link" href="{% if goods.has_next %}?{% change_params page=goods.next_page_number %}{% else %}#{% endif %}" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>
