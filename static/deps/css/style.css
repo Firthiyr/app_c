@@ -61,7 +61,14 @@ body {
   --bs-danger-rgb: 249, 235, 231;
   --bs-warning-rgb: 255, 249, 235;
   --bs-info-rgb: 230, 243, 250;
+
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 /*Задаем цвет и появление бєкграунда на навбаре при скроле*/
 .navbar-scrolled {
   background-color: rgba(255, 255, 255, 0.8); 
@@ -282,6 +289,7 @@ a {
 /*----------------------------------------------*/
 /* 6.1 Header
 --------------------------------------------------------------*/
+
 /* Preloader */
 .preloader-wrapper {
   width: 100%;
@@ -543,6 +551,16 @@ iconify-icon.arrow-icon {
 
 
 /* footer style */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.wrapper > footer {
+  margin-top: auto;
+}
+
 a.footer-link {
   color: #A1A1A1;
   font-size: 1.0625rem;
@@ -552,15 +570,6 @@ a.footer-link {
 a.footer-link:hover {
   color: var(--light-color);
 }
-
-#footer {
-margin-top: 80px;
-}
-
-#footer-bottom {
-  margin-top: -80px;
-}
-
 
 @media screen and (max-width: 991px) {
 
