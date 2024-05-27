@@ -27,88 +27,108 @@
 			<div class="col-lg-2">
 				<div class="shop__sidebar">
 					<div class="shop__sidebar__accordion">
-						<button class="btn btn-primary btn-filters btn-toggle align-items-center rounded mb-3"
-							data-bs-toggle="collapse" data-bs-target="#filters-collapse" aria-expanded="false">
-							<i class="bi bi-funnel"></i> Фільтри
+						<button class="btn btn-primary btn-filters btn-toggle align-items-center rounded mb-3" data-bs-toggle="collapse" data-bs-target="#filters-collapse" aria-expanded="false">
+							<i class="bi bi-funnel"></i>Фільтри
 						</button>
 						<div class="collapse" id="filters-collapse">
 							<div class="accordion" id="accordionExample">
-								<ul class="list-unstyled ps-0">
-									<li class="mb-1">
-										<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-											data-bs-target="#categories-collapse" aria-expanded="false">
-											<i class="bi bi-list"></i> Категорії
-										</button>
-										<div class="collapse" id="categories-collapse">
-											<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-												<li>
-													<input type="checkbox" id="category1" name="category" value="Взуття">
-													<label for="category1" class="link-dark rounded">Взуття</label>
-												</li>
-												<li>
-													<input type="checkbox" id="category2" name="category" value="Одежа">
-													<label for="category2" class="link-dark rounded">Одежа</label>
-												</li>
-												<li>
-													<input type="checkbox" id="category3" name="category" value="Аксесуари">
-													<label for="category3" class="link-dark rounded">Аксесуари</label>
-												</li>
-											</ul>
-										</div>
-									</li>
-									<li class="mb-1">
-										<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-											data-bs-target="#manufacturers-collapse" aria-expanded="false">
-											<i class="bi bi-shop"></i> Виробник
-										</button>
-										<div class="collapse" id="manufacturers-collapse">
-											<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-												<li>
-													<input type="checkbox" id="manufacturer1" name="manufacturer" value="Rayban">
-													<label for="manufacturer1" class="link-dark rounded">Rayban</label>
-												</li>
-												<li>
-													<input type="checkbox" id="manufacturer2" name="manufacturer" value="Adidas">
-													<label for="manufacturer2" class="link-dark rounded">Adidas</label>
-												</li>
-												<li>
-													<input type="checkbox" id="manufacturer3" name="manufacturer" value="Puma">
-													<label for="manufacturer3" class="link-dark rounded">Puma</label>
-												</li>
-											</ul>
-										</div>
-									</li>
-									<li class="mb-1">
-										<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-											data-bs-target="#sizes-collapse" aria-expanded="false">
-											<i class="bi bi-rulers"></i> Розміри
-										</button>
-										<div class="collapse" id="sizes-collapse">
-											<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-												<li>
-													<input type="checkbox" id="size3" name="size" value="X">
-													<label for="size3" class="link-dark rounded">S</label>
-												</li>
-												<li>
-													<input type="checkbox" id="size1" name="size" value="M">
-													<label for="size1" class="link-dark rounded">M</label>
-												</li>
-												<li>
-													<input type="checkbox" id="size2" name="size" value="L">
-													<label for="size2" class="link-dark rounded">L</label>
-												</li>
-												<li>
-													<input type="checkbox" id="size3" name="size" value="X">
-													<label for="size3" class="link-dark rounded">X</label>
-												</li>
-												<li>
-													<input type="checkbox" id="size4" name="size" value="XL">
-													<label for="size4" class="link-dark rounded">XL</label>
-												</li>
-											</ul>
-										</div>
-									</li>
-								</ul>
+								<form method="get" action="{% url "catalog:index" slug_url %}">
+									<ul class="list-unstyled ps-0">
+										<li>
+											<input type="checkbox" id="default_sales" name="on_sale" value="on">
+												<label for="default_sales" class="link-dark rounded">Товари по акції</label>
+										</li>
+										<li>
+											<input type="checkbox" id="default_price1" name="order_by" value="price">
+												<label for="default_price1" class="link-dark rounded">Дешеві-Дорогі</label>
+										</li>
+										<li>
+											<input type="checkbox" id="default_price2" name="order_by" value="-price">
+												<label for="default_price2" class="link-dark rounded">Дорогі-Дешеві</label>
+										</li>
+										<li class="mb-1">
+											<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+											href="#categories-collapse" role="button" aria-expanded="false">
+												<i class="bi bi-list"></i>Категорії
+											</a>
+											<div class="collapse" id="categories-collapse">
+												<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+													<li>
+														<input type="checkbox" id="category1" name="category" value="vzuttya">
+															<label for="category1" class="link-dark rounded">Взуття</label>
+													</li>
+													<li>
+														<input type="checkbox" id="category2" name="category" value="odyag">
+															<label for="category2" class="link-dark rounded">Одежа</label>
+													</li>
+													<li>
+														<input type="checkbox" id="category3" name="category" value="aksesuari">
+															<label for="category3" class="link-dark rounded">Аксесуари</label>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li class="mb-1">
+											<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" href="#manufacturers-collapse" role="button" aria-expanded="false">
+												<i class="bi bi-shop"></i>Виробник
+											</a>
+											<div class="collapse" id="manufacturers-collapse">
+												<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+													<li>
+															<input type="checkbox" id="manufacturer1" name="manufacturer" value="rayban">
+															<label for="manufacturer1" class="link-dark rounded">Rayban</label>
+													</li>
+													<li>
+														<input type="checkbox" id="manufacturer2" name="manufacturer" value="nike">
+														<label for="manufacturer2" class="link-dark rounded">Nike</label>
+													</li>
+													<li>
+														<input type="checkbox" id="manufacturer3" name="manufacturer" value="puma">
+														<label for="manufacturer3" class="link-dark rounded">Puma</label>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li class="mb-1">
+											<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" href="#sizes-collapse" role="button" aria-expanded="false">
+												<i class="bi bi-rulers"></i>Розміри
+											</a>
+											<div class="collapse" id="sizes-collapse">
+												<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+													<li>
+														<input type="checkbox" id="size1" name="size" value="s">
+														<label for="size1" class="link-dark rounded">S</label>
+													</li>
+													<li>
+														<input type="checkbox" id="size2" name="size" value="m">
+														<label for="size2" class="link-dark rounded">M</label>
+													</li>
+													<li>
+														<input type="checkbox" id="size3" name="size" value="l">
+														<label for="size3" class="link-dark rounded">L</label>
+													</li>
+													<li>
+														<input type="checkbox" id="size4" name="size" value="x">
+														<label for="size4" class="link-dark rounded">X</label>
+													</li>
+													<li>
+														<input type="checkbox" id="size5" name="size" value="xl">
+														<label for="size5" class="link-dark rounded">XL</label>
+													</li>
+													<li>
+														<input type="checkbox" id="size2" name="size" value="41">
+														<label for="size2" class="link-dark rounded">41</label>
+													</li>
+													<li>
+														<input type="checkbox" id="size2" name="size" value="36">
+														<label for="size2" class="link-dark rounded">36</label>
+													</li>
+												</ul>
+											</div>
+										</li>
+									</ul>
+									<button type="submit" class="btn btn-primary btn-filters btn-toggle align-items-center rounded mb-3" data-bs-toggle="collapse" data-bs-target="#filters-collapse" aria-expanded="false">Застосувати <i class="bi bi-arrow-right"></i>
+								</form>
 							</div>
 						</div>
 					</div>
@@ -142,7 +162,7 @@
 									{% else %}
 										<span class="text-normal">{{ product.price }}₴</span>
 									{% endif %}
-									<a href="product.html" class="btn btn-outline-dark ms-4 px-0 py-2 rounded">
+									<a href="{% url 'catalog:product' product.slug %}" class="btn btn-outline-dark ms-4 px-0 py-2 rounded">
 										View Details
 									</a>
 								</div>
