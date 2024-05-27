@@ -33,10 +33,13 @@
 						</button>
 						<div class="collapse" id="filters-collapse">
 							<div class="accordion" id="accordionExample">
-								<form method="get" action="{% url "catalog:index" slug_url %}">
+								<form method="get" action="{% if request.GET.q %}{% url "catalog:search" %}{% else %}{% url "catalog:index" slug_url %}{% endif %}">
 									<ul class="list-unstyled ps-0">
 										<li>
 											<input type="checkbox" id="default_sales" name="on_sale" value="on" {% if request.GET.on_sale == "on" %}checked{% endif %}>
+											{% if request.GET.q %}
+												<input type="hidden", name="q" value="{{ request.GET.q }}">
+											{% endif %}
 												<label for="default_sales" class="link-dark rounded">Товари по акції</label>
 										</li>
 										<li>
