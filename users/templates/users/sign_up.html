@@ -1,0 +1,125 @@
+{% extends "skelet.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-option">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="breadcrumb__text">
+					<h4>Магазин</h4>
+					<div class="breadcrumb__links">
+						<a href="{% url "main:index" %}">Головна</a>
+						<span>Категорії</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Breadcrumb Section End -->
+<section class="bg-light p-3 p-md-4 p-xl-5">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-12 col-xxl-11">
+				<div class="card border-light-subtle shadow-sm">
+					<div class="row g-0">
+						<div class="col-12 col-md-6">
+							<img class="img-fluid rounded-start w-100 h-100 object-fit-cover" loading="lazy"
+								src="{% static "deps/image/banner3.jpg" %}" alt="Join us and explore more!">
+						</div>
+						<div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
+							<div class="col-12 col-lg-11 col-xl-10">
+								<div class="card-body p-3 p-md-4 p-xl-5">
+									<div class="row">
+										<div class="col-12">
+											<div class="mb-5 text-center">
+												<i class="bi bi-person-plus fa-2x me-3" style="color: #ff6219;"></i>
+												<h4>Create an Account</h4>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12">
+											<div class="d-flex gap-3 flex-column">
+												<a href="#!" class="btn btn-lg btn-outline-dark">
+													<i class="bi bi-google"></i>
+													<span class="ms-2 fs-6">Sign up with Google</span>
+												</a>
+											</div>
+											<p class="text-center mt-4 mb-5">Or sign up with</p>
+										</div>
+									</div>
+									<form action="#!" onsubmit="return validateForm()">
+										<div class="row gy-3 overflow-hidden">
+											<div class="col-12">
+												<div class="form-floating mb-3">
+													<input type="text" class="form-control" name="first_name" id="first_name" placeholder="Ім'я"
+														required pattern="[A-Za-zА-Яа-яЁёЄєЇїІі']+" title="Введите только буквы" inputmode="text">
+													<label for="first_name" class="form-label">Ім'я</label>
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="form-floating mb-3">
+													<input type="text" class="form-control" name="last_name" id="last_name"
+														placeholder="Фамілія" required pattern="[A-Za-zА-Яа-яЁёЄєЇїІі']+"
+														title="Введите только буквы" inputmode="text">
+													<label for="last_name" class="form-label">Фамілія</label>
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="form-floating mb-3">
+													<input type="tel" class="form-control" name="phone_number" id="phone_number"
+														placeholder="Номер телефону" required pattern="[0-9]+" title="Введите только цифры"
+														inputmode="numeric">
+													<label for="phone_number" class="form-label">Номер телефону</label>
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="form-floating mb-3">
+													<input type="email" class="form-control" name="email" id="email"
+														placeholder="name@example.com" required>
+													<label for="email" class="form-label">Email</label>
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="form-floating mb-3">
+													<input type="password" class="form-control" name="password" id="password"
+														placeholder="Password" required>
+													<label for="password" class="form-label">Password</label>
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="form-floating mb-3">
+													<input type="password" class="form-control" name="confirm_password" id="confirm_password"
+														placeholder="Confirm Password" required>
+													<label for="confirm_password" class="form-label">Confirm Password</label>
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="d-grid">
+													<button class="btn btn-dark btn-lg" type="submit">Sign Up</button>
+												</div>
+											</div>
+										</div>
+									</form>
+									<div class="row">
+										<div class="col-12">
+											<div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-center mt-5">
+												<a href="{% url "users:sign_in" %}" class="link-dark">Already have an account?</a>
+												<a href="#!" class="link-dark">Forgot password</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}
