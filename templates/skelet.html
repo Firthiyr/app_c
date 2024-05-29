@@ -137,10 +137,13 @@
 								</iconify-icon>
 						</a>
 						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+							{% if not user.is_authenticated %}
 								<li><a class="dropdown-item" href="{% url "users:sign_in" %}">Вхід</a></li>
+								{% else %}
 								<li><a class="dropdown-item" href="{% url "users:profile" %}">Особистий кабінет</a></li>
 								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item text-danger" href="{% url "users:logout" %}">Вийти</a></li>
+								{% endif %}
 						</ul>
 					</li>
 					<li class="">
