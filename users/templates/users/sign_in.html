@@ -51,30 +51,36 @@
 											</div>
 											<p class="text-center mt-4 mb-5">Or sign in with</p>
 										</div>
-									</div>
-									<form action="#!">
-										<div class="row gy-3 overflow-hidden">
-											<div class="col-12">
-												<div class="form-floating mb-3">
-													<input type="email" class="form-control" name="email" id="email"
-														placeholder="name@example.com" required>
-													<label for="email" class="form-label">Email</label>
-												</div>
-											</div>
-											<div class="col-12">
-												<div class="form-floating mb-3">
-													<input type="password" class="form-control" name="password" id="password"
-														placeholder="Password" required>
-													<label for="password" class="form-label">Password</label>
-												</div>
-											</div>
-											<div class="col-12">
-												<div class="d-grid">
-													<button class="btn btn-dark btn-lg" type="submit">Log in</button>
-												</div>
-											</div>
+									</div>								
+									<form action="{% url "users:sign_in" %}" method="post">
+										{% csrf_token %}
+										{% if form.non_field_errors %}
+										<div class="alert alert-danger alert-dismissible fade show" role="alert">
+												{{ form.non_field_errors }}
+												<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 										</div>
-									</form>
+										{% endif %}
+										<div class="row gy-3 overflow-hidden">
+												<div class="col-12">
+														<div class="form-floating mb-3">
+																<input type="text" class="form-control" name="username" value="{% if form.username.value %}{{ form.username.value }}{% endif %}" id="id_username" placeholder="Введіть ваш Username" required>
+																<label for="id_username" class="form-label">Ім'я користувача</label>
+														</div>
+												</div>
+												<div class="col-12">
+														<div class="form-floating mb-3">
+																<input type="password" class="form-control" name="password" id="id_password" placeholder="Введіть ваш пароль" required>
+																<label for="id_password" class="form-label">Password</label>
+														</div>
+												</div>
+												<div class="col-12">
+														<div class="d-grid">
+																<button class="btn btn-dark btn-lg" type="submit">Log in</button>
+														</div>
+												</div>
+										</div>
+								</form>
+								
 									<div class="row">
 										<div class="col-12">
 											<div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-center mt-5">
