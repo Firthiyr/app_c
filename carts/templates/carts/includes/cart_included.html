@@ -1,0 +1,27 @@
+{% load static %}
+
+		<h4 class="d-flex justify-content-between align-items-center mb-4">
+			<span class="text-primary">Ваша корзина</span>
+			<span class="badge bg-primary rounded-circle pt-2">1</span>
+		</h4>
+		<ul class="list-group mb-4">
+			<li class="list-group-item d-flex justify-content-between lh-sm align-items-center">
+				<div>
+					<h6 class="my-0">Nike Air Jordan 1 Retro Low OG ‘Voodoo’</h6>
+				</div>
+				<span class="text-body-secondary">6500&nbsp;₴</span>
+				<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+					href="{% url "cart:delete_in_cart" 1 %}" role="button">
+					<i class="bi bi-trash text-danger"></i>
+				</a>
+				<!--<button class="btn btn-link p-0 ms-2" type="button" aria-label="Видалити товар">
+					<i class="bi bi-trash text-danger"></i>
+				</button>-->
+			</li>
+			<li class="list-group-item d-flex justify-content-between">
+				<span class="fw-bold">Всього:</span>
+				<strong>6500 ₴</strong>
+			</li>
+		</ul>
+		<button class="w-100 btn btn-dark" onclick="window.location.href="{% url "user:users_cart" %}"" type="button">Продовжити
+			оформлення</button>

@@ -41,10 +41,11 @@ INSTALLED_APPS = [
     "django.contrib.postgres",
     # Plugin for display various debug information
     "debug_toolbar",
-    #
+    # My apps
     "main",
     "goods",
     "users",
+    "carts",
 ]
 
 MIDDLEWARE = [
@@ -151,3 +152,5 @@ INTERNAL_IPS = [
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "users.User"  # Переопределяем для модели юзера, чтобы джанго не создавал свою автоматическую
+
+LOGIN_URL = "/users/sign_in/"

@@ -44,30 +44,16 @@
 		<div class="offcanvas-header justify-content-center">
 			<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 		</div>
+
+
 		<div class="offcanvas-body">
 			<div class="order-md-last">
-				<h4 class="d-flex justify-content-between align-items-center mb-4">
-					<span class="text-primary">Ваша корзина</span>
-					<span class="badge bg-primary rounded-circle pt-2">1</span>
-				</h4>
-				<ul class="list-group mb-4">
-					<li class="list-group-item d-flex justify-content-between lh-sm">
-						<div>
-							<h6 class="my-0">Nike Air Jordan 1 Retro Low OG ‘Voodoo’</h6>
-							<small class="text-body-secondary">Опис</small>
-						</div>
-						<span class="text-body-secondary">6500 грн.</span>
-					</li>
-					<li class="list-group-item d-flex justify-content-between">
-						<span class="fw-bold">Всього:</span>
-						<strong>6500 грн.</strong>
-					</li>
-				</ul>
-				<button class="w-100 btn btn-dark" onclick="window.location.href='cart.html'" type="button">Продовжити
-					оформлення</button>
+				{% include "carts/includes/cart_included.html" %}
 			</div>
 		</div>
 	</div>
+
+
 
 	<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasSearch"
 		aria-labelledby="Search">

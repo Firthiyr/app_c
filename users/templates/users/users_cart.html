@@ -1,0 +1,31 @@
+{% extends "skelet.html" %}
+{% load static %}
+
+<section class="shopping-cart spad">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="shopping__cart__table">
+					{% include "carts/includes/cart_included.html" %}
+					</table>
+				</div>
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-6">
+						<div class="continue__btn">
+							<a href="index.html">Продовжити покупки</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="cart__total">
+					<h6>Всього</h6>
+					<ul>
+						<li>До сплати <span>14567 грн</span></li>
+					</ul>
+					<a href="checkout.html" class="btn btn-dark">Оформити замовлення</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
