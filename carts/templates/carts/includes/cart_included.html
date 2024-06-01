@@ -23,8 +23,7 @@
       </span>
     </div>
     <span class="text-body-secondary">{{ cart.product.sell_price }}&nbsp;₴</span>
-    <a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-      href="{% url "cart:delete_in_cart" 1 %}" role="button">
+    <a class="btn btn-toggle align-items-center rounded collapsed" href="{% url "cart:delete_in_cart" cart.id %}">
       <i class="bi bi-trash text-danger"></i>
     </a>
     <!--<button class="btn btn-link p-0 ms-2" type="button" aria-label="Видалити товар">
@@ -39,5 +38,6 @@
 </li>
 <button class="w-100 btn btn-dark" onclick="window.location.href="{% url "user:users_cart" %}"" type="button">Продовжити
   оформлення</button>
+
 
 

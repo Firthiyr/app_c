@@ -982,22 +982,19 @@ Styles page style start
 .input-cart {
   display: flex;
   align-items: center;
-}
-
-.input-btn-cart {
-  width: auto;
+  margin: 15px
 }
 
 .form-control-cart.number {
-  width: 15px;
+  max-width: 15px;
   text-align: center;
 }
 
-.input-cart-btn {
-  padding: 0.25rem 0.5rem;
-  font-size: 0.875rem;
-  margin: 0 0.25rem;
+.input-cart .btn-sm {
+  padding: 4px;
+  font-size: 12px;
 }
+
 /*---------------------
   About
 -----------------------*/
