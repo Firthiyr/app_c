@@ -38,7 +38,7 @@
 				<h1 class="display-5 fw-bolder">{{ poduct.name }}</h1>
 				<div class="fs-5 mb-5">
 					{% if product.discount %}
-					<!--<span class="text-normal"><s>{{ product.price }}</s>₴ </span>-->
+					<span class="text-normal"><s>{{ product.price }}</s>₴ </span>
 					<span class="text-sale">{{ product.sell_price }}₴</span>
 				{% else %}
 					<span class="text-normal">{{ product.price }}₴</span>
@@ -48,7 +48,7 @@
 				<div class="d-flex">
 					<input class="form-control text-center me-3" id="inputQuantity" type="number" value="1" />
 					<div class="item-price fs-5 d-flex align-items-center">
-						<a href="product.html" class="btn btn-outline-dark ms-3 px-4 py-4 rounded">
+						<a href="{% url "cart:add_to_cart" product.slug %}" class="btn btn-outline-dark ms-3 px-4 py-4 rounded">
 							<i class="bi-cart-fill me-1"></i>
 							У кошик
 						</a>

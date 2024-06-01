@@ -45,14 +45,13 @@
 			<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 		</div>
 
-
+		<!--Разметка корзины модальная-->
 		<div class="offcanvas-body">
 			<div class="order-md-last">
 				{% include "carts/includes/cart_included.html" %}
 			</div>
 		</div>
 	</div>
-
 
 
 	<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasSearch"
@@ -132,6 +131,8 @@
 								{% endif %}
 						</ul>
 					</li>
+
+
 					<li class="">
 						<a href="#" class="mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
 							aria-controls="offcanvasCart">
@@ -141,6 +142,8 @@
 							</span>
 						</a>
 					</li>
+
+					
 					<li>
 						<a href="#" class="mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSearch"
 							aria-controls="offcanvasSearch">
