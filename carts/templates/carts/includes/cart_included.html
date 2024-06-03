@@ -5,7 +5,7 @@
 
 <h4 class="d-flex justify-content-between align-items-center mb-4">
   <span class="text-primary">Ваш кошик</span>
-  <span class="badge bg-primary rounded-circle pt-2">{{ carts.total_quantity }}</span>
+  <span id="goods-in-cart-count" class="badge bg-primary rounded-circle pt-2">{{ carts.total_quantity }}</span>
 </h4>
 {% for cart in carts %}
 <ul class="list-group mb-4">
@@ -34,7 +34,7 @@
 </ul>
 {% endfor %}
 <li class="list-group-item d-flex justify-content-between">
-  <span class="fw-bold">Всього {{ carts.total_quantity }} товар(и) на суму:</span>
+  <span id="goods-in-cart-count" class="fw-bold">Всього {{ carts.total_quantity }} товар(и) на суму:</span>
   <strong>{{ carts.total_price }} ₴</strong>
 </li>
 {% if carts %}

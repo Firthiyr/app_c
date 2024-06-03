@@ -43,7 +43,7 @@
 
 		<!--Разметка корзины модальная-->
 		<div class="offcanvas-body">
-			<div class="cart-items-container">
+			<div id="cart-items-container" class="cart-items-container">
 				{% include "carts/includes/cart_included.html" %}
 			</div>
 		</div>
@@ -127,7 +127,7 @@
 								{% endif %}
 						</ul>
 					</li>
-
+					
 
 {% block modal_cart %}
 <!--{% include "includes/cart_buttons" %}Если нужно будет на будущее-->
@@ -240,8 +240,8 @@
 		</div>
 	</div>
 </div>
-<script src="{% static "deps/js/jquery/jquery-3.7.0.min.js" %}"></script>
-<script src="{% static "deps/js/script.js" %}"></script>
-<script src="{% static "deps/js/jquery-ajax.js" %}"></script>
+	<script src="{% static "deps/js/jquery/jquery-3.7.0.min.js" %}"></script>
+	<script src="{% static "deps/js/jquery-ajax.js" %}"></script>
+	<script src="{% static "deps/js/script.js" %}"></script>
 </body>
 </html>

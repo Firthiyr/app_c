@@ -52,9 +52,9 @@
 				<div class="d-flex">
 					<input class="form-control text-center me-3" id="inputQuantity" type="number" value="1" />
 					<div class="item-price fs-5 d-flex align-items-center">
-						<a href="{% url "cart:add_to_cart" %}" class="btn btn-outline-dark add-to-cart ms-3 px-4 py-4 rounded" data-product-id="{{ product.id }}">
-							{% csrf_token %}
+						<a href="{% url "cart:add_to_cart" %}" class="btn add-to-cart btn-outline-dark ms-3 px-4 py-4 rounded" data-product-id="{{ product.id }}">
 							<i class="bi-cart-fill me-1"></i>
+							{% csrf_token %}
 							У кошик
 						</a>
 					</div>
