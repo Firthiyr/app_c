@@ -61,10 +61,11 @@ def change_in_cart(request):
 
     cart.quantity = quantity
     cart.save()
+    updated_quantity = cart.quantity
 
     cart = get_user_carts(request)
     cart_items_html = render_to_string(
-        "users/includes/cart_included.html", {"carts": cart}, request=request
+        "carts/includes/cart_included.html", {"carts": cart}, request=request
     )
 
     responce_data = {
