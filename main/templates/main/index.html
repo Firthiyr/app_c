@@ -1,6 +1,10 @@
 {% extends "skelet.html" %}
 {% load static %}
 
+{% block modal_cart %}
+{% include "includes/cart_button.html" %}
+{% endblock %}
+
 {% block content %}
 	<section id="hero" style="background-image:url({% static "deps/image/pexels.jpg" %});">
 		<div class="container padding-large">

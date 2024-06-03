@@ -1,6 +1,10 @@
 {% extends "skelet.html" %}
 {% load static %}	
 
+{% block modal_cart %}
+{% include "includes/cart_button.html" %}
+{% endblock %}
+
 {% block content %}
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-option">
@@ -34,8 +38,8 @@
 				{% endif %}
 			</div>
 			<div class="col-md-6">
+				<div class="product_id mb-1">{{ product.name }}</div>
 				<div class="product_id mb-1">Арт: {{ product.display_id }}</div>
-				<h1 class="display-5 fw-bolder">{{ poduct.name }}</h1>
 				<div class="fs-5 mb-5">
 					{% if product.discount %}
 					<span class="text-normal"><s>{{ product.price }}</s>₴ </span>
@@ -48,7 +52,8 @@
 				<div class="d-flex">
 					<input class="form-control text-center me-3" id="inputQuantity" type="number" value="1" />
 					<div class="item-price fs-5 d-flex align-items-center">
-						<a href="{% url "cart:add_to_cart" product.slug %}" class="btn btn-outline-dark ms-3 px-4 py-4 rounded">
+						<a href="{% url "cart:add_to_cart" %}" class="btn btn-outline-dark add-to-cart ms-3 px-4 py-4 rounded" data-product-id="{{ product.id }}">
+							{% csrf_token %}
 							<i class="bi-cart-fill me-1"></i>
 							У кошик
 						</a>

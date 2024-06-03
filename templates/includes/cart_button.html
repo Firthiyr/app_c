@@ -1,0 +1,14 @@
+{% load static %}
+{% load carts_tags %}
+
+{% user_carts request as carts  %}
+
+<li class="">
+	<a href="#" class="mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
+		aria-controls="offcanvasCart">
+		<iconify-icon class="fs-4"><i class="bi bi-bag" style=font-size:1.4rem;></i></iconify-icon>
+		<span class="position-absolute translate-middle badge rounded-circle bg-primary">
+			{{ carts.total_quantity }}
+		</span>
+	</a>
+</li>
