@@ -4,14 +4,11 @@ from carts.models import Cart
 from django.http import JsonResponse
 from django.template.loader import render_to_string
 from carts.utils import get_user_carts
-from django.views.decorators.csrf import csrf_exempt
 
 
-@csrf_exempt
 def add_to_cart(request):
 
     product_id = request.POST.get("product_id")
-
     product = Products.objects.get(id=product_id)
 
     if request.user.is_authenticated:
