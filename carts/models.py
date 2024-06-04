@@ -20,7 +20,7 @@ class Cart(models.Model):
     user = models.ForeignKey(
         to=User, on_delete=models.CASCADE, verbose_name="Користувач"
     )
-    session_key = models.CharField(max_length=32, null=True, blank=True)
+    session_key = models.CharField(max_length=64, null=True, blank=True)
     product = models.ForeignKey(
         to=Products, on_delete=models.CASCADE, verbose_name="Товар"
     )
@@ -40,4 +40,9 @@ class Cart(models.Model):
         return round(self.product.sell_price() * self.quantity, 2)
 
     def __str__(self):
-        return f"Кошик {self.user.username} | Товар {self.product.name} | Кількість {self.quantity}"
+        if self.user:
+            return f"Кошик {self.user.username} | Товар {self.product.name} | Кількість {self.quantity}"
+
+        return (
+            f"Анонімний кошик | Товар {self.product.name} | Кількість {self.quantity}"
+        )

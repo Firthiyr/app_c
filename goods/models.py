@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 # Create your models here.
@@ -92,11 +93,15 @@ class Products(models.Model):
         return f"{self.id:04}"
 
     def sell_price(self):
-        if self.discount:  # Проработка скидки на сайте
+        if self.discount:  # Work about discount on the site
             return round(self.price - self.price * self.discount / 100, 2)
         return (
             self.price
-        )  # Если скидки нет возв. обычная цена, если есть уже со скидкой
+        )  # If there is no discoun = the regular price. If there is = discount
+
+    # Create get_absolute_url to be able to see how product looks on the site directly from the admin panel
+    def get_absolute_url(self):
+        return reverse("catalog:product", kwargs={"product_slug": self.slug})
 
     class Meta:
         db_table = "Product"
