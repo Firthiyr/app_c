@@ -12,24 +12,18 @@ $(document).ready(function () {
 	});
 });
 
-document.getElementById('delivery_method').addEventListener('change', function () {
-	var deliveryAddressContainer = document.getElementById('delivery_address_container');
-	if (this.value === 'delivery') {
-			deliveryAddressContainer.style.display = 'block';
-	} else {
-			deliveryAddressContainer.style.display = 'none';
+document.addEventListener("DOMContentLoaded", function () {
+	const deliverySelect = document.getElementById("id_requires_delivery");
+	const deliveryAddressField = document.getElementById("deliveryAddressField");
+
+	function toggleDeliveryAddress() {
+		if (deliverySelect.value == "1") {
+			deliveryAddressField.style.display = "block";
+		} else {
+			deliveryAddressField.style.display = "none";
+		}
 	}
+
+	deliverySelect.addEventListener("change", toggleDeliveryAddress);
+	toggleDeliveryAddress();
 });
-
-/*-------------------
-		Radio Btn
-	--------------------- */
-/*	$(".product__color__select label, .shop__sidebar__size label, .product__details__option__size label").on('click', function () {
-		$(".product__color__select label, .shop__sidebar__size label, .product__details__option__size label").removeClass('active');
-		$(this).addClass('active');
-});*/
-
-/*-------------------
-		Price sidebar
-	--------------------- */
-	
