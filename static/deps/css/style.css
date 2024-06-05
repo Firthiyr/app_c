@@ -983,11 +983,16 @@ Styles page style start
 .input-cart {
   display: flex;
   align-items: center;
-  margin: 15px
+  margin: 10px;
 }
 
+.input-cart-btn {
+  flex: none;
+}
+
+
 .form-control-cart.number {
-  max-width: 15px;
+  max-width: 17px;
   text-align: center;
 }
 

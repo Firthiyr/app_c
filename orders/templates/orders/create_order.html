@@ -1,0 +1,86 @@
+{% extends "skelet.html" %}
+{% load static %}
+{% load carts_tags %}
+
+{% block content %}
+<section class="checkout">
+  <div class="untree_co-section">
+      <div class="container">
+          <div class="row">
+              <!-- Вибрані товари -->
+              <div class="col-md-12">
+                  <h2 class="h3 mb-3 text-black">Вибрані товари</h2>
+                  <div class="p-3 p-lg-5 border bg-white">
+                      <div class="form-group row">
+                          {% user_carts request as carts %}
+                          {% include "carts/includes/cart_included.html" %}
+                      </div>
+                  </div>
+              </div>
+              <!-- Деталі замовлення -->
+              <form action="{% url "orders:create_order" %}" method="post">
+                {% csrf_token %}
+                <div class="col-md-12">
+                  <br>
+                  <h2 class="h3 mb-3 text-black">Деталі замовлення</h2>
+                  <div class="p-3 p-lg-5 border bg-white">
+                      <div class="form-group row">
+                          <div class="col-md-6">
+                              <label class="form-label" for="id_first_name">Ім'я</label>
+                              <input type="text" id="id_first_name"
+                              name="first_name" class="form-control form-control-lg" placeholder="Олег" minlength="2" maxlength="30" value="{% if form.first_name.value %}{{ form.first_name.value }}{%endif%}" required>{% if form.first_name.errors %} <div class="alert alert-danger alert-dismissible fade show" role="alert"> {{ form.first_name.errors }}
+                              </div>
+                          {% endif %}
+                          </div>
+                          <div class="col-md-6">
+                              <label class="form-label" for="id_last_name">Фамілія</label>
+                              <input type="text" id="id_last_name"
+                              name="last_name" class="form-control form-control-lg" placeholder="Шашков" minlength="2" maxlength="30" value="{% if form.last_name.value %}{{ form.last_name.value }}{%endif%}" required> {% if form.last_name.errors %} <div class="alert alert-danger alert-dismissible fade show" role="alert"> {{ form.last_name.errors }}
+                              </div>
+                          {% endif %}
+                          </div>
+                          <div class="col-md-6">
+                              <label for="id_phone_number" class="text-black">Номер телефону <span class="text-danger">*</span></label>
+                              <input type="number" id="id_phone_number"
+                              name="phone_number" class="form-control form-control-lg" placeholder="+380991111111" minlength="13" maxlength="13" value="{% if form.phone_number.value %}{{ form.phone_number.value }}{%endif%}" required> {% if form.phone_number.errors %} <div class="alert alert-danger alert-dismissible fade show" role="alert"> {{ form.phone_number.errors }}
+                              </div>
+                          {% endif %}
+                          </div>
+                      </div>
+                      <!-- Спосіб доставки -->
+                      <div class="form-group mt-3">
+                          <label for="delivery" class="text-black">Спосіб доставки <i class="bi bi-caret-down-fill"></i></label>
+                          <select id="id_requires_delivery" class="form-control form-control-lg">
+                              <option name="requires_delivery" id="id_requires_delivery" value="0">Самовивіз</option>
+                              <option name="requires_delivery" id="id_requires_delivery" value="1">Доставка</option>
+                          </select>
+                      </div>
+                      <div class="form-group mt-3" id="deliveryAddressField" style="display: none;">
+                          <label for="id_delivery_address" class="text-black">Адреса</label>
+                          <input type="text" id="id_delivery_address" 
+                          name="delivery_address" class="form-control form-control-lg" rows="2" placeholder="Місто/Область/Відділ нової пошти" value="{% if form.delivery_address.value%}{{ form.delivery_address.value }}{%endif%}"> {% if form.delivery_address.errors %} <div class="alert alert-danger alert-dismissible fade show" role="alert"> {{ form.delivery_address.errors }}
+                          </div>
+                          {% endif %}
+                          <small class="form-text text-danger">Доставка наразі тількі через Нову Пошту</small>
+                      </div>
+                      <!-- Спосіб оплати -->
+                      <div class="form-group mt-3">
+                          <label for="payment_method" class="text-black">Спосіб оплати <i class="bi bi-caret-down-fill"></i></label>
+                          <select id="id_payment_on_get" class="form-control form-control-lg">
+                              <option  name="payment_on_get" id="id_payment_on_get" value="0">Оплата карткою</option>
+                              <option 
+                              name="payment_on_get" id="id_payment_on_get" value="1">При отриманні</option>
+                          </select>
+                      </div>
+                      <!-- Кнопка Оформити замолвеня -->
+                      <div class="form-group mt-3">
+                          <button type="button" class="btn btn-dark w-100">Оформити замолвеня</button>
+                      </div>
+                  </div>
+              </div>
+            </form>
+          </div>
+      </div>
+  </div>
+</section>
+{% endblock %}

@@ -13,11 +13,11 @@
     <div>
       <h6 class="my-0">{{ cart.product.name }}</h6>
     </div>
-    <div class="input-cart">
+    <div class="input-cart d-flex align-items-center">
       <span class="input-cart-btn">
         <button type="button" class="btn btn-dark btn-sm decrement" data-cart-id="{{ cart.id }}" data-cart-change-url="{% url "cart:change_in_cart" %}">{% csrf_token %}-</button>
       </span>
-      <input type="text" class="form-control-cart number" value="{{ cart.quantity }}" readonly>
+      <input type="text" class="form-control-cart number mx-2" value="{{ cart.quantity }}" readonly>
       <span class="input-cart-btn">
         <button type="button" class="btn btn-dark btn-sm increment" data-cart-id="{{ cart.id }}" data-cart-change-url="{% url "cart:change_in_cart" %}">{% csrf_token %}+</button>
       </span>
@@ -27,9 +27,6 @@
       {% csrf_token %}
       <i class="bi bi-trash text-danger"></i>
     </a>
-    <!--<button class="btn btn-link p-0 ms-2" type="button" aria-label="Видалити товар">
-      <i class="bi bi-trash text-danger"></i>
-    </button>-->
   </li>
 </ul>
 {% endfor %}
@@ -38,7 +35,6 @@
   <strong>{{ carts.total_price }} ₴</strong>
 </li>
 {% if carts %}
-<button class="w-100 btn btn-dark" onclick="window.location.href="{% url "user:users_cart" %}"" type="button">Продовжити
-  оформлення</button>
+<button class="w-100 btn btn-dark" onclick="window.location.href='{% url "orders:create_order" %}'" type="button">Продовжити оформлення</button>
 {% endif %}
 

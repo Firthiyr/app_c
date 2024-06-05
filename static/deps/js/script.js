@@ -12,6 +12,15 @@ $(document).ready(function () {
 	});
 });
 
+document.getElementById('delivery_method').addEventListener('change', function () {
+	var deliveryAddressContainer = document.getElementById('delivery_address_container');
+	if (this.value === 'delivery') {
+			deliveryAddressContainer.style.display = 'block';
+	} else {
+			deliveryAddressContainer.style.display = 'none';
+	}
+});
+
 /*-------------------
 		Radio Btn
 	--------------------- */
