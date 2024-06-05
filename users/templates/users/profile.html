@@ -1,9 +1,7 @@
 {% extends "skelet.html" %}
 {% load static %}
 
-{% block modal_cart %}
-{% include "includes/cart_button.html" %}
-{% endblock %}
+{% load carts_tags %}
 
 {% block content %}
 <!-- Breadcrumb Section Begin -->
@@ -117,7 +115,6 @@
 							</div>
 						</div>
 						<br>
-						
 						{% include "carts/includes/cart_included.html" %}
 					</div>
 				</div>

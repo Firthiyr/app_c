@@ -1,3 +1,4 @@
+import re
 from django import forms
 
 
@@ -18,3 +19,15 @@ class CreateOrderForm(forms.Form):
             ("1", "True"),
         ]
     )
+
+    def clean_phone_number(self):
+        data = self.cleaned_data["phone_number"]
+
+        # Разрешить символ "+" в начале строки и цифры после него
+        pattern = re.compile(r"^\+\d{12}$")
+        if not pattern.match(data):
+            raise forms.ValidationError(
+                "Невірний формат номеру. Номер повинен починатися з '+' та має містити 12 цифр"
+            )
+
+        return data

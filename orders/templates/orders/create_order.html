@@ -48,7 +48,7 @@
                           <div class="col-md-6">
                               <label for="id_phone_number" class="text-black">Номер телефону <span class="text-danger">*</span></label>
                               <input type="text" id="id_phone_number"
-                              name="phone_number" class="form-control form-control-lg" placeholder="+380991111111" minlength="13" maxlength="13" value="{{ form.phone_number.value }}" required>
+                              name="phone_number" class="form-control form-control-lg" placeholder="+380991111111" minlength="13" maxlength="13" value="{% if form.phone_number.value %}{{ form.phone_number.value }}{% else %}{% endif %}" required>
                               {% if form.phone_number.errors %} 
                               <div class="alert alert-danger alert-dismissible fade show" role="alert"> 
                                 {{ form.phone_number.errors }}
@@ -67,12 +67,10 @@
                       <div class="form-group mt-3" id="deliveryAddressField" style="display: none;">
                           <label for="id_delivery_address" class="text-black">Адреса</label>
                           <input type="text" id="id_delivery_address" 
-                          name="delivery_address" class="form-control form-control-lg" placeholder="Місто/Область/Відділ нової пошти" value="{{ form.delivery_address.value }}">
-                          {% if form.delivery_address.errors %} 
+                          name="delivery_address" class="form-control form-control-lg" placeholder="Місто/Область/Відділ нової пошти" value="{% if form.delivery_address.value %}{{ form.delivery_address.value }}{% else %}{% endif %}">
                           <div class="alert alert-danger alert-dismissible fade show" role="alert"> 
                             {{ form.delivery_address.errors }}
                           </div>
-                          {% endif %}
                           <small class="form-text text-danger">Доставка наразі тількі через Нову Пошту</small>
                       </div>
                       <!-- Спосіб оплати -->

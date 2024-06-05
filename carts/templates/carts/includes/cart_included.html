@@ -34,7 +34,7 @@
   <span id="goods-in-cart-count" class="fw-bold">Всього {{ carts.total_quantity }} товар(и) на суму:</span>
   <strong>{{ carts.total_price }} ₴</strong>
 </li>
-{% if carts %}
+{% if carts and not order %}
 <button class="w-100 btn btn-dark" onclick="window.location.href='{% url "orders:create_order" %}'" type="button">Продовжити оформлення</button>
 {% endif %}
 
